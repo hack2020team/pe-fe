@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import Dashboard from './features/dashboard/Dashboard.js'
 import { PlayerContainer } from './features/player/PlayerContainer';
 import './App.css';
 import { Container, AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
@@ -39,7 +40,8 @@ function App() {
         </Toolbar>
       </AppBar>
       <Container>
-        <PlayerContainer video="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" poster="http://via.placeholder.com/3840x1440"/>
+        <Dashboard />
+        {/* <PlayerContainer video="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" poster="http://via.placeholder.com/3840x1440"/> */}
       </Container>
 
     </div>

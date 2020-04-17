@@ -25,8 +25,6 @@ const useStyles = makeStyles((theme) => ({
 function App() {
 
   const classes = useStyles();
-
-
   return (
     <div className="App">
       <AppBar position="static">
@@ -41,7 +39,7 @@ function App() {
         </Toolbar>
       </AppBar>
       <Container>
-        <PlayerContainer video="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4"/>
+        <PlayerContainer video="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" poster="http://via.placeholder.com/3840x1440"/>
       </Container>
 
     </div>

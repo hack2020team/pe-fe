@@ -15,7 +15,7 @@ export class PlayerContainer extends React.Component {
 
   render() {
     return (
-      <Player poster="/assets/poster.png">
+      <Player poster={this.props.poster}>
         <source src={this.props.video} />
 
         <ControlBar>

@@ -41,7 +41,7 @@ function App() {
         </Toolbar>
       </AppBar>
       <Video />
-      {/* <Quiz /> */}
+      <Quiz />
 
 
     </div>

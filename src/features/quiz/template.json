@@ -1,0 +1,35 @@
+{
+    "meta": {
+        "title": "...",
+        "creator": "...",
+        "created": "TIMESTAMP",
+        "timeLimit": "...",
+        "submissionEndpoint": "..."
+    },
+    "questions": {
+        "000": {
+            "title": "What method is commonly used to describe...?",
+            "detail": "...",
+            "value": "5",
+            "answers": {
+                "a00": "This is a good question.",
+                "a01": "I don't understand.",
+                "a02": "Help me!"
+            },
+            "correctAnswer": "a01",
+            "reason": "The reason is this."
+        },
+        "001": {
+            "title": "How broken is this System?",
+            "detail": "...",
+            "value": "5",
+            "answers": {
+                "a00": "Great! Lets get started!",
+                "a01": "Not at all!",
+                "a02": "This is a test file."
+            },
+            "correctAnswer": "a00",
+            "reason": "And this is why!"
+        }
+    }
+}

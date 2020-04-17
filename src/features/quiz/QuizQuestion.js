@@ -1,7 +1,6 @@
 import React from 'react';
 import QuizAnswer from './QuizAnswer'
-import { withFormik } from "formik";
-import { Paper,Box, Container } from '@material-ui/core';
+import { Paper,Box } from '@material-ui/core';
 
 class QuizQuestion extends React.Component {
 

@@ -1,6 +1,5 @@
 // Render Prop
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Container, Button } from '@material-ui/core';
 import { withFormik } from "formik";
 import QuizQuestion from './QuizQuestion';

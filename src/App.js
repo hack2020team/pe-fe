@@ -6,6 +6,8 @@ import './App.css';
 import { Container, AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import Quiz from './features/quiz/Quiz'
+import Video from './views/Video'
 
 
 
@@ -33,14 +35,14 @@ function App() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Generic Education Product
+            YouLearn
     </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Container>
-        <PlayerContainer video="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" poster="http://via.placeholder.com/3840x1440"/>
-      </Container>
+      <Video />
+      {/* <Quiz /> */}
+
 
     </div>
   );

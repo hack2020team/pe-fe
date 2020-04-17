@@ -7,15 +7,32 @@ import {
   CurrentTimeDisplay,
   TimeDivider,
   PlaybackRateMenuButton,
-  VolumeMenuButton
+  VolumeMenuButton,
+  PlayToggle
 } from 'video-react';
 import "./video-react.css";
 
 export class PlayerContainer extends React.Component {
 
+  constructor(props){
+    super(props);
+    this._player = React.createRef();
+  }
+
+  pause() {
+    this._player.current.pause();
+  }
+
+  
+  play() {
+    this._player.current.play();
+  }
+  
+
   render() {
     return (
-      <Player poster={this.props.poster}>
+      <Player poster={this.props.poster} 
+              ref={this._player}>
         <source src={this.props.video} />
 
         <ControlBar>
@@ -25,6 +42,7 @@ export class PlayerContainer extends React.Component {
           <TimeDivider order={4.2} />
           <PlaybackRateMenuButton rates={[1.5, 1.25, 1, 0.75]} order={7.1} />
           <VolumeMenuButton />
+          <PlayToggle />
         </ControlBar>
       </Player>
     );

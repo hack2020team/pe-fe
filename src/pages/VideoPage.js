@@ -5,6 +5,8 @@ import PlayerContainer from '../features/player/PlayerContainer';
 import Script from '../features/script/Script';
 import { Container, Button, Grid, Paper } from '@material-ui/core';
 import VideoView from '../views/videoView';
+import AppBarView from '../views/AppBarView'
+
 
 export default class  VideoPage extends React.Component {
 
@@ -30,8 +32,11 @@ export default class  VideoPage extends React.Component {
     render(){
         return (
             <div>
-                <Button onClick={() => this.setState({completed:false, videoId: this.state.videoId + 1})}>Next</Button>
-                <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"  ref={this._player} videoStateChange={() => this.handleVideoStateChange()}/>
+                <AppBarView/>
+                <div>
+                    <Button onClick={() => this.setState({completed:false, videoId: this.state.videoId + 1})}>Next</Button>
+                    <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"  ref={this._player} videoStateChange={() => this.handleVideoStateChange()}/>
+                </div>
             </div>
         );
     }

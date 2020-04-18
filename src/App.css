@@ -1,7 +1,12 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
-
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

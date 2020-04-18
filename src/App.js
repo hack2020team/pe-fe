@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Dashboard from './features/dashboard/Dashboard.js'
 import './App.css';
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -41,6 +42,10 @@ function App() {
       </AppBar>
       <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/>
       <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
+      <Container>
+        <Dashboard />
+        <Video />
+      </Container>
 
     </div>
   );

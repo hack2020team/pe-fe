@@ -1,7 +1,8 @@
 import React from 'react';
 
+import Dashboard from './features/dashboard/Dashboard.js'
 import './App.css';
-import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Button, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Quiz from './features/quiz/Quiz';
@@ -40,6 +41,11 @@ function App() {
       </AppBar>
       <VideoPage />
       <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q3.json"/>
+
+      <Container>
+        <Dashboard />
+      </Container>
+
 
     </div>
   );

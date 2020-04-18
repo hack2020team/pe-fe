@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import PlayerContainer from '../features/player/PlayerContainer';
 import Script from '../features/script/Script';
@@ -43,7 +41,8 @@ export default class VideoView extends React.Component {
             duration: state.duration,
             pause: state.paused
         });
-        this.props.videoStateChange(this.state);
+        
+        this.props.videoStateChange();
     }
 
     load(){

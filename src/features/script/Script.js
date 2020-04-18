@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -19,7 +18,7 @@ export default class Script extends React.Component {
             readyScript: false,
             info: null,
             script: null,
-            videoId: props.videoId
+            videoId: -1
         };
     }
 
@@ -29,7 +28,7 @@ export default class Script extends React.Component {
         this._scrollControl.current.goToPos(scrollDistance, 400);
     }
 
-    componentDidUpdate(props, prevProps) {
+    componentWillUpdate(props, prevProps) {
         if (this.props.videoId !== this.state.videoId) {
         fetch(this.props.source + "i" + this.props.videoId + ".json")
             .then(response => response.json())
@@ -57,7 +56,7 @@ export default class Script extends React.Component {
 
 
     render() {
-        return (<div >
+        return (<div>
             <ExpansionPanel>
                 <ExpansionPanelSummary
                     expandIcon={<ExpandMoreIcon />}

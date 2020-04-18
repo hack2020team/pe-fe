@@ -62,6 +62,8 @@ function App() {
 				{/* <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/> */}
 				{/* <VideoPage /> */}
 				<Chatbot />
+
+				
 			</Container>
 			<Alert onClose={() => {}} style={{ padding: "20px", position: "fixed", left: 0, bottom: 0, width: "100%"}} severity="info">By using that website you agree for using your camera</Alert>
 		</div>

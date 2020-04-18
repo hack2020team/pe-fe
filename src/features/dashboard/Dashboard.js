@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Table, TableBody,TableCell,TableContainer, TableHead, TableRow, LinearProgress, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, Button, TextField } from '@material-ui/core';
+import { Table, Typography, TableBody,TableCell,TableContainer, TableHead, TableRow, LinearProgress, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, Button, TextField } from '@material-ui/core';
 
 const useStyles = makeStyles({
   table: {
@@ -44,24 +44,26 @@ export default function SimpleTable() {
           {courses.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
+              <Typography variant="subtitle1" style={{fontWeight: 'bold'}} gutterBottom>
                 {row.name}
+              </Typography> 
               </TableCell>
               <TableCell align="right">
               <div className={classes.root}>
-                <LinearProgress style={{height: "15px"}} variant="determinate" value={row.progress} />
+                <LinearProgress style={{height: "15px"}} color="secondary" variant="determinate" value={row.progress} />
               </div>
               </TableCell>
               <TableCell align="right"><img src={row.img} width="90px"/></TableCell>
             </TableRow>
           ))}
-           <TableRow>
+           {/* <TableRow>
               <TableCell component="th" scope="row">
                 <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                   + Add course
                 </Button>
                 
               </TableCell>
-            </TableRow>
+            </TableRow> */}
         </TableBody>
        
       </Table>

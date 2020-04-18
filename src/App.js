@@ -9,6 +9,8 @@ import Quiz from './features/quiz/Quiz';
 import Script from './features/script/Script';
 import Video from './views/Video';
 import 'typeface-roboto';
+import { MuiThemeProvider,ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { white } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,32 +25,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
+const theme = createMuiTheme({
+	palette: {
+	  secondary: {
+		  main: '#1f56b3'
+		}
+	  }
+	},
+  )
 function App() {
 
   const classes = useStyles();
   return (
-    <div>
-		<AppBar position="static">
-			<Toolbar>
-				<IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-					<MenuIcon />
-				</IconButton>
-				<Typography variant="h6" className={classes.title}>
-					YouLearn
-				</Typography>
-				<Button color="inherit">Login</Button>
-			</Toolbar>
-		</AppBar>
-		{/* <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/> */}
+	<MuiThemeProvider theme={theme}>
+		<ThemeProvider
+        theme={(theme) =>
+          createMuiTheme({
+            ...theme,
+            palette: {
+              ...theme.palette,
+              primary: {
+				main: '#838383'
+			  },
+            },
+          })
+        }
+      >
+		<div>
+			<AppBar position="static">
+				<Toolbar color="secondary">
+					<Typography variant="h6" className={classes.title}>
+						YouLearn
+					</Typography>
+					<Button color="inherit">Login</Button>
+				</Toolbar>
+			</AppBar>
+			{/* <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/> */}
 			<Container>
 				<Dashboard />
 				<Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
 				<Video />
 				<Chatbot />
 			</Container>
-
-    </div>
+		</div>
+		</ThemeProvider>
+	</MuiThemeProvider>
   );
 }
 

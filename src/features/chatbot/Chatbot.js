@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-// import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 
-const otherFontTheme = {
+const theme = {
   background: '#f5f8fb',
   fontFamily: 'Helvetica Neue',
-  headerBgColor: '#6e48aa',
+  headerBgColor: '#1f56b3',
   headerFontColor: '#fff',
-  headerFontSize: '16px',
-  botBubbleColor: '#6E48AA',
+  headerFontSize: '15px',
+  botBubbleColor: '#1f56b3',
   botFontColor: '#fff',
   userBubbleColor: '#fff',
-  userFontColor: '#4a4a4a'
+  userFontColor: '#4a4a4a',
+  userFontColor: '#1f56b3'
 };
 
 const steps = [
@@ -36,12 +37,16 @@ export default function SimpleTable() {
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <ChatBot
-        botAvatar="https://images.unsplash.com/photo-1506919258185-6078bba55d2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1415&q=80"
-        opened={open}
-        steps={steps}
-        floating={true}
-      />
+      <ThemeProvider theme={theme}>
+        <ChatBot
+          botAvatar="https://images.unsplash.com/photo-1506919258185-6078bba55d2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1415&q=80"
+          opened={open}
+          background= {'#1f56b3'}
+          steps={steps}
+          floating={true}
+
+        />
+      </ThemeProvider>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import Quiz from '../features/quiz/Quiz';
 import styles from './video.page.css';
 import WebcamWrapper from '../features/webcam/WebcamWrapper';
 import AttentionAlert from '../features/attentionAlert/Alert'
+import SuggestionAlert from '../features/suggestionAlert/Alert';
 
 
 
@@ -21,7 +22,8 @@ export default class VideoPage extends React.Component {
         completed: false,
         videoId: 1,
         quizOpen: false,
-        tiredOpen: false
+        tiredOpen: false,
+        suggestionOpen: false
     }
 
 
@@ -45,7 +47,8 @@ export default class VideoPage extends React.Component {
                         completed: this.state.completed,
                         videoId: this.state.videoId,
                         quizOpen: false,
-                        tiredOpen: true
+                        tiredOpen: true,
+                        suggestionOpen: false
                     });
                 }
             }
@@ -86,7 +89,8 @@ export default class VideoPage extends React.Component {
             completed: completed,
             videoId: this.state.videoId,
             quizOpen: false,
-            tiredOpen: false
+            tiredOpen: false,
+            suggestionOpen: false
         });
 
     }
@@ -101,14 +105,16 @@ export default class VideoPage extends React.Component {
                     completed: false,
                     videoId: nextVideo,
                     quizOpen: true,
-                    tiredOpen: false
+                    tiredOpen: false,
+                    suggestionOpen: false
                 });
             } else {
                 this.setState({
                     completed: false,
                     videoId: this.state.videoId,
                     quizOpen: true,
-                    tiredOpen: false
+                    tiredOpen: false,
+                    suggestionOpen: false
                 });
             }
         }, 1000);
@@ -120,7 +126,18 @@ export default class VideoPage extends React.Component {
             completed: false,
             videoId: this.state.videoId,
             quizOpen: true,
-            tiredOpen: false
+            tiredOpen: false,
+            suggestionOpen: false
+        });
+    };
+
+    handleOpenSuggestion = () => {
+        this.setState({
+            completed: false,
+            videoId: this.state.videoId,
+            quizOpen: false,
+            tiredOpen: false,
+            suggestionOpen: true
         });
     };
 
@@ -129,7 +146,8 @@ export default class VideoPage extends React.Component {
             completed: false,
             videoId: this.state.videoId,
             quizOpen: false,
-            tiredOpen: true
+            tiredOpen: true,
+            suggestionOpen:false
         });
     };
 
@@ -138,8 +156,12 @@ export default class VideoPage extends React.Component {
     render() {
         return (
             <div>
-                <Button onClick={() => this.setState({ completed: false, videoId: this.state.videoId + 1 })}>Next</Button>
-                <Button onClick={() => this.handleOpenOptions()}>Open</Button>
+                <div>
+                    Debug options:
+                    <Button onClick={() => this.setState({ completed: false, videoId: this.state.videoId + 1 })}>Next</Button>
+                    <Button onClick={() => this.handleOpenOptions()}>Attention</Button>
+                    <Button onClick={() => this.handleOpenSuggestion()}>Suggestion</Button>
+                </div>
                 <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/" ref={this._player} videoStateChange={() => this.handleVideoStateChange()} />
                 <WebcamWrapper fps="5" websocket={this.ws} />
                 <Modal
@@ -167,6 +189,21 @@ export default class VideoPage extends React.Component {
                         <Grid container justify="center" spacing={2}>
                             <Grid item md={2}>
                                 <AttentionAlert onClose={() => this.handleClose()} />
+                            </Grid>
+                        </Grid>
+                    </div>
+                </Modal>
+
+                <Modal
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                    open={this.state.suggestionOpen}
+                    onClose={this.handleClose}
+                >
+                    <div style={{ marginTop: "10%" }}>
+                        <Grid container justify="center" spacing={2}>
+                            <Grid item md={2}>
+                                <SuggestionAlert onClose={() => this.handleClose()} />
                             </Grid>
                         </Grid>
                     </div>

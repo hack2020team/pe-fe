@@ -68,7 +68,7 @@ export default function SimpleTable() {
         <Grid item xs={12} md={4}>
           <div style={{textAlign: 'center'}}>
             <img  width="70%" src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.14.40.png" />
-            <img  width="400px" style={{paddingTop: '50px'}} src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.27.49.png" />
+            <img  width="80%" style={{paddingTop: '50px'}} src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.27.49.png" />
           </div>
         </Grid>
       

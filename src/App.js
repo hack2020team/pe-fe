@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import { PlayerContainer } from './features/player/PlayerContainer';
+
+import Dashboard from './features/dashboard/Dashboard.js'
 import './App.css';
-import { Container, AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Button, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import Quiz from './features/quiz/Quiz'
-import Video from './views/Video'
-
+import Quiz from './features/quiz/Quiz';
+import VideoPage from './pages/videoPage';
+import 'typeface-roboto';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +27,7 @@ function App() {
 
   const classes = useStyles();
   return (
-    <div className="App">
+    <div>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -40,8 +39,12 @@ function App() {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Video />
-      {/* <Quiz /> */}
+      <VideoPage />
+      <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q3.json"/>
+
+      <Container>
+        <Dashboard />
+      </Container>
 
 
     </div>

@@ -51,10 +51,8 @@ function App() {
 					<Button color="inherit">Login</Button>
 				</Toolbar>
 			</AppBar>
-			{/* <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/> */}
 			<Container>
 				<Dashboard />
-				<Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
 				<VideoPage />
 				<Chatbot />
 			</Container>

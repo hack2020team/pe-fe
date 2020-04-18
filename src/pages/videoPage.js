@@ -26,24 +26,30 @@ export default class VideoPage extends React.Component {
         this._quiz = React.createRef();
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.ws.onopen = () => {
             // on connecting, do nothing but log it to the console
             console.log('connected')
-          }
-      
-          this.ws.onmessage = evt => {
-            // listen to data sent from the websocket server
-            const message = JSON.parse(evt.data)
-            this.setState({ dataFromServer: message })
-            console.log(message)
-          }
-      
-          this.ws.onclose = () => {
+        }
+
+        this.ws.onmessage = evt => {
+            // // listen to data sent from the websocket server
+            try {
+                const message = JSON.parse(evt.data)
+                this.setState({ dataFromServer: message })
+                console.log(message)
+            }
+            catch (err) {
+
+            }
+
+        }
+
+        this.ws.onclose = () => {
             console.log('disconnected')
             // automatically try to reconnect on connection loss
-      
-          }
+
+        }
     }
 
 

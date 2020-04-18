@@ -23,7 +23,7 @@ export default function SimpleTable() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div style={{ paddingTop: "35px" }}> 
     <Grid container spacing={3}>
       <Grid item xs={8}>
         <TableContainer>

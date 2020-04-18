@@ -8,7 +8,8 @@ import Quiz from './features/quiz/Quiz';
 import VideoPage from './pages/videoPage';
 import 'typeface-roboto';
 import { MuiThemeProvider,ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import Routes from './router';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,29 +39,30 @@ function App() {
 
   const classes = useStyles();
   return (
-	<MuiThemeProvider theme={theme}>
-		<ThemeProvider
-			theme={theme}
-     	 >
-		<div>
-			<AppBar position="static">
-				<Toolbar color="secondary">
-					<Typography variant="h6" className={classes.title}>
-						YouLearn
-					</Typography>
-					<Button color="inherit">Login</Button>
-				</Toolbar>
-			</AppBar>
-			{/* <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/> */}
-			<Container>
-				<Dashboard />
-				<Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
-				<VideoPage />
-				<Chatbot />
-			</Container>
-		</div>
-		</ThemeProvider>
-	</MuiThemeProvider>
+    <Router>
+      <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+          <div>
+            <AppBar position="static">
+              <Toolbar color="secondary">
+                <Typography variant="h6" className={classes.title}>
+                  YouLearn
+                </Typography>
+                <Button color="inherit">Login</Button>
+              </Toolbar>
+            </AppBar>
+            {/* <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/> */}
+            <Container>
+              <Dashboard />
+              <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
+              <VideoPage />
+              <Chatbot />
+            </Container>
+          </div>
+        </ThemeProvider>
+      </MuiThemeProvider>
+      <Routes/>
+    </Router>
   );
 }
 

@@ -8,6 +8,7 @@ import Quiz from './features/quiz/Quiz';
 import VideoPage from './pages/videoPage';
 import 'typeface-roboto';
 import { MuiThemeProvider,ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -49,6 +50,7 @@ function App() {
 
 				
 			</Container>
+			<Alert onClose={() => {}} style={{ padding: "20px", position: "fixed", left: 0, bottom: 0, width: "100%"}} severity="info">By using that website you agree for using your camera</Alert>
 		</div>
 		</ThemeProvider>
 	</MuiThemeProvider>

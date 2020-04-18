@@ -1,6 +1,6 @@
 // Render Prop
 import React from 'react';
-import { Container, Button } from '@material-ui/core';
+import { Container, Button, Typography } from '@material-ui/core';
 import { withFormik } from "formik";
 import QuizQuestion from './QuizQuestion';
 
@@ -13,13 +13,14 @@ export default class Quiz extends React.Component {
         this.state = {
             completed: false,
             score: 0,
-            max_score: 0
+            max_score: 0,
+            data: null,
+            ready: false
         }
+    }
 
-
-        let data = require("./template.json");
-        console.log(data)
-
+    generateLayout = () => {
+        let data = this.state.data;
         const MyInnerForm = props => {
             const {
                 values,
@@ -37,23 +38,29 @@ export default class Quiz extends React.Component {
             Object.keys(data.questions).forEach(e => { console.log(e) });
             return (
                 <form onSubmit={handleSubmit}>
+                    <Typography variant="h4" component="h4">
+                        {data.meta.title}
 
+                    </Typography>
+                    <Typography variant="p" component="p">
+                        <small>By {data.meta.creator} on {data.meta.created}</small>
+                    </Typography>
                     {Object.keys(data.questions).map((question, index) => (
-                        <QuizQuestion data={data.questions[question]} sup_props={props} index={question} />
+                        <QuizQuestion data={data.questions[question]} sup_props={props} index={question} disabled={this.state.completed} />
                     ))}
 
                     <Button
                         type="button"
                         className="outline"
                         onClick={handleReset}
-                        disabled={!dirty || isSubmitting}
+                        disabled={!dirty || this.state.completed}
                     >
                         Reset
                 </Button>
-                    <Button type="submit" disabled={isSubmitting}>
+                    <Button type="submit" disabled={this.state.completed}>
                         Submit
                 </Button>
-                <div>{(this.state.completed) ? "Completed with " + this.state.score + "/" + this.state.max_score + " points": null}</div>
+                    <div>{(this.state.completed) ? "Completed with " + this.state.score + "/" + this.state.max_score + " points" : null}</div>
                 </form>
             );
         };
@@ -75,7 +82,7 @@ export default class Quiz extends React.Component {
                 };
             });
             this.setState({ completed: true, score: correct, max_score: total })
-            
+
             return errors;
         };
 
@@ -93,9 +100,30 @@ export default class Quiz extends React.Component {
             validate,
             displayName: "BasicForm" // helps with React DevTools
         })(MyInnerForm);
+        this.setState(d => this.setState({
+            completed: false,
+            score: 0,
+            max_score: 0,
+            data: data,
+            ready: true
+        }))
+
+    }
+
+
+    componentDidMount() {
+        fetch(this.props.source)
+            .then(response => response.json())
+            .then(d => this.setState({
+                completed: false,
+                score: 0,
+                max_score: 0,
+                data: d,
+                ready: false
+            })).then(d => console.log(d)).then(this.generateLayout);
     }
 
     render() {
-        return (<Container><this.EnhancedForm /></Container>)
+        return (<Container>{(this.state.ready) ? <this.EnhancedForm /> : "Loading"}</Container>)
     }
 }

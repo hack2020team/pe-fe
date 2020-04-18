@@ -15,7 +15,7 @@ class QuizQuestion extends React.Component {
                             text={this.props.data.answers[answer]}
                             onChange={() => this.props.sup_props.setFieldValue(this.props.index, this.props.index + "-" + answer)}
                             id={answer}
-                            questionIndex={this.props.index} />
+                            questionIndex={this.props.index} disabled={this.props.disabled} />
                     ))}
                     {this.props.sup_props.errors[this.props.index] ? <div><p>{this.props.sup_props.errors[this.props.index]} <small>{this.props.data.reason}</small></p></div> : null}
                 </Paper>

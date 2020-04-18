@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Quiz from './features/quiz/Quiz'
 import Video from './views/Video'
-
+import 'typeface-roboto';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +26,7 @@ function App() {
 
   const classes = useStyles();
   return (
-    <div className="App">
+    <div>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -39,7 +39,7 @@ function App() {
         </Toolbar>
       </AppBar>
       <Video />
-      <Quiz />
+      <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q001.json"/>
 
 
     </div>

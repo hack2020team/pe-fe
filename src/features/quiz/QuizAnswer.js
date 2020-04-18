@@ -15,6 +15,7 @@ class QuizAnswer extends React.Component {
                     value={this.props.id}
                     checked={this.props.values[this.props.questionIndex] === this.props.questionIndex + "-" + this.props.id}
                     onChange={this.props.onChange}
+                    disabled={this.props.disabled}
                   />{this.props.text}
                 </label>
         )

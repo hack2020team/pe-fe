@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 
 const theme = createMuiTheme({
 	palette: {
-		
 	  secondary: {
 		  main: '#1f56b3'
 		},
@@ -43,8 +42,8 @@ function App() {
 			theme={theme}
      	 >
 		<div>
-			<AppBar position="static">
-				<Toolbar color="secondary">
+			<AppBar color="secondary" position="static">
+				<Toolbar >
 					<Typography variant="h6" className={classes.title}>
 						YouLearn
 					</Typography>

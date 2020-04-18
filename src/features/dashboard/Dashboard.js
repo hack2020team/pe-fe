@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Table, Typography, TableBody,TableCell,TableContainer, TableHead, TableRow, LinearProgress, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, Button, TextField } from '@material-ui/core';
+import { NavLink } from 'react-router-dom'
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
-function createData(name, progress, img) {
-  return { name, progress, img };
+function createData(name, progress, img, url) {
+  return { name, progress, img, url };
 }
 
 const courses = [
-  createData('Deep Neural Networks for Language Understanding', 90, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+00.16.43.png'),
-  createData('Explainable AI and Causality', 30, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
-  createData('Style Transfer Networks', 20, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
-  createData('Low-Resource-Learning / Transfer Learning / Active Learning', 30,'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
-  createData('AlphaGo / AlphaZero / AlphaStar', 10, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
+  createData('Deep Neural Networks for Language Understanding', 90, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+00.16.43.png', 'deep-neural-networks-for-language-understanding'),
+  createData('Explainable AI and Causality', 30, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png', 'explainable-aI-and-Causality'),
+  createData('Style Transfer Networks', 20, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png', 'style-transfer-networks'),
+  createData('Low-Resource-Learning / Transfer Learning / Active Learning', 30,'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png', 'low-resource-learning-transfer-learning-active-learning'),
+  createData('AlphaGo / AlphaZero / AlphaStar', 10, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png', 'alphaGo-alphaZero-alphaStar'),
 ];
 
 export default function SimpleTable() {
@@ -44,9 +45,11 @@ export default function SimpleTable() {
           {courses.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
-              <Typography variant="subtitle1" style={{fontWeight: 'bold'}} gutterBottom>
-                {row.name}
-              </Typography> 
+                <NavLink to={"/" + row.url}>
+                  <Typography variant="subtitle1" style={{fontWeight: 'bold'}} gutterBottom>
+                    {row.name}
+                  </Typography> 
+                </NavLink>
               </TableCell>
               <TableCell align="right">
               <div className={classes.root}>

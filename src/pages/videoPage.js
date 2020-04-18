@@ -32,6 +32,7 @@ export default class  VideoPage extends React.Component {
             <div>
                 <Button onClick={() => this.setState({completed:false, videoId: this.state.videoId + 1})}>Next</Button>
                 <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"  ref={this._player} videoStateChange={() => this.handleVideoStateChange()}/>
+                
             </div>
         );
     }

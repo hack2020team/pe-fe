@@ -29,7 +29,7 @@ export default class Script extends React.Component {
         this._scrollControl.current.goToPos(scrollDistance, 400);
     }
 
-    componentWillReceiveProps(props, prevProps) {
+    componentDidUpdate(props, prevProps) {
         if (this.props.videoId !== this.state.videoId) {
         fetch(this.props.source + "i" + this.props.videoId + ".json")
             .then(response => response.json())

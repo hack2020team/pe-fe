@@ -34,7 +34,7 @@ export default class Quiz extends React.Component {
                 handleReset,
                 setFieldValue
             } = props;
-            console.log(data.questions)
+
             Object.keys(data.questions).forEach(e => { console.log(e) });
             return (
                 <form onSubmit={handleSubmit}>
@@ -120,7 +120,7 @@ export default class Quiz extends React.Component {
                 max_score: 0,
                 data: d,
                 ready: false
-            })).then(d => console.log(d)).then(this.generateLayout);
+            })).then(this.generateLayout);
     }
 
     render() {

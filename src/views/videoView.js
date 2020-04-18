@@ -38,13 +38,14 @@ export default class VideoView extends React.Component {
         this._player.current.subscribeToStateChange(this.handleStateChange.bind(this));
     }
 
-    handleStateChange(state, prevState) {
+    handleStateChange = (state, prevState) => {
         this.setState({
             player: state,
             currentTime: state.currentTime,
             duration: state.duration,
             pause: state.paused
         });
+        this.props.videoStateChange(this.state);
     }
 
     load(){

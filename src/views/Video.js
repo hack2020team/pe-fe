@@ -53,12 +53,12 @@ export default class Video extends React.Component {
         return (
             <Container>
                 <Grid container spacing={2}>
-                    <Grid item lg={8}>
-                        <Paper><PlayerContainer video="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" ref={this._player} poster="http://via.placeholder.com/3840x1440" />
+                    <Grid item md={8}>
+                        <Paper><PlayerContainer video={this.props.source + "v" + this.props.videoId + ".mp4"} ref={this._player} poster={this.props.source + "p" + this.props.videoId + ".jpg"} />
                         </Paper>
                     </Grid>
-                    <Grid item lg={4}>
-                        <Paper><Script scrollPercentage={this.state.currentTime / this.state.duration}/></Paper>
+                    <Grid item md={4}>
+                        <Paper><Script scrollPercentage={this.state.currentTime / this.state.duration} videoId={this.props.videoId} source={this.props.source}/></Paper>
                     </Grid>
                 </Grid>
 

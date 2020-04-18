@@ -39,8 +39,8 @@ function App() {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Video />
-      <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q001.json"/>
+      <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/>
+      <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
 
     </div>
   );

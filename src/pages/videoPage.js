@@ -15,7 +15,7 @@ export default class VideoPage extends React.Component {
         this._player = React.createRef();
         this._quiz = React.createRef();
     }
-    ws = new WebSocket('wss://sock.youlearn.kontr.io');
+    ws = new WebSocket('wss://messaging.youlearn.kontr.io');
 
     state = {
         completed: false,

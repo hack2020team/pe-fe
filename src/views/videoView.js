@@ -3,7 +3,7 @@
 import React from 'react';
 import PlayerContainer from '../features/player/PlayerContainer';
 import Script from '../features/script/Script';
-import { Container, Button, Grid, Paper } from '@material-ui/core';
+import { Container, Grid, Paper } from '@material-ui/core';
 
 
 
@@ -45,7 +45,8 @@ export default class VideoView extends React.Component {
             duration: state.duration,
             pause: state.paused
         });
-        this.props.videoStateChange(this.state);
+        
+        this.props.videoStateChange();
     }
 
     load(){

@@ -57,10 +57,11 @@ export default class Quiz extends React.Component {
                     >
                         Reset
                 </Button>
-                    <Button type="submit" disabled={this.state.completed}>
+                    <Button type="submit" disabled={this.state.completed} onClick={() => this.props.onSubmit()}>
                         Submit
                 </Button>
                     <div>{(this.state.completed) ? "Completed with " + this.state.score + "/" + this.state.max_score + " points" : null}</div>
+                    <div>{(this.state.completed) ? <Button variant="contained" color="secondary" onClick={() => this.props.onClose()}>Close</Button> : null}</div>
                 </form>
             );
         };

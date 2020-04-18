@@ -1,9 +1,14 @@
 import React from 'react';
-import { Button, Paper, Modal } from '@material-ui/core';
+import { Button, Paper, Modal, Grid } from '@material-ui/core';
 import VideoView from '../views/videoView';
 import Quiz from '../features/quiz/Quiz';
 import styles from './video.page.css';
-import WebcamWrapper from '../features/webcam/WebcamWrapper'
+import WebcamWrapper from '../features/webcam/WebcamWrapper';
+import AttentionAlert from '../features/attentionAlert/Alert'
+
+
+
+
 export default class VideoPage extends React.Component {
 
     state = {
@@ -96,7 +101,7 @@ export default class VideoPage extends React.Component {
         return (
             <div>
                 <Button onClick={() => this.setState({ completed: false, videoId: this.state.videoId + 1 })}>Next</Button>
-
+                <Button onClick={() => this.handleOpenOptions()}>Open</Button>
                 <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/" ref={this._player} videoStateChange={() => this.handleVideoStateChange()} />
                 <WebcamWrapper />
 
@@ -108,8 +113,8 @@ export default class VideoPage extends React.Component {
                     open={this.state.quizOpen}
                     onClose={this.handleClose}
                 >
-                    <div style={{margin: "10%"}}>
-                        <Paper style={{paddingTop: "5%", paddingBottom:"5%"}}>
+                    <div style={{ margin: "10%" }}>
+                        <Paper style={{ paddingTop: "5%", paddingBottom: "5%" }}>
                             <Quiz source={"https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q" + this.state.videoId + ".json"} ref={this._quiz} onClose={() => this.handleClose()} onSubmit={() => this.handleNextVideoQuiz()} />
                         </Paper>
                     </div>
@@ -121,10 +126,12 @@ export default class VideoPage extends React.Component {
                     open={this.state.optionOpen}
                     onClose={this.handleClose}
                 >
-                    <div className="styles.simple-modal">
-                        <Paper>
-                            <Quiz source={"https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q" + this.state.videoId + ".json"} />
-                        </Paper>
+                    <div style={{ marginTop: "10%" }}>
+                        <Grid container justify="center" spacing={2}>
+                            <Grid item md={2}>
+                                <AttentionAlert onClose={() => this.handleClose()} />
+                            </Grid>
+                        </Grid>
                     </div>
                 </Modal>
 

@@ -43,7 +43,7 @@ function App() {
      	 >
 		<div>
 			<Container>
-				<Dashboard />
+				{/* <Dashboard /> */}
 				<VideoPage />
 				<Chatbot />
 

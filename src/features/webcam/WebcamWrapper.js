@@ -6,7 +6,7 @@ import { sizing } from '@material-ui/system';
 export default class WebcamWrapper extends React.Component {
 
 
-  ws = new WebSocket('ws://localhost:8080')
+  
 
   constructor(props) {
     super(props);
@@ -16,33 +16,17 @@ export default class WebcamWrapper extends React.Component {
       height: 240,
       facingMode: "user"
     };
-    setInterval(this.capture, 2000)
+    setInterval(this.capture, 1000/this.props.fps)
   }
 
   componentDidMount() {
-    this.ws.onopen = () => {
-      // on connecting, do nothing but log it to the console
-      console.log('connected')
-    }
-
-    this.ws.onmessage = evt => {
-      // listen to data sent from the websocket server
-      const message = JSON.parse(evt.data)
-      this.setState({ dataFromServer: message })
-      console.log(message)
-    }
-
-    this.ws.onclose = () => {
-      console.log('disconnected')
-      // automatically try to reconnect on connection loss
-
-    }
+    
   }
 
   capture = () => {
-    if (this._webcam.current != null) {
+    if (this._webcam.current != null && this.props.websocket != null) {
       let imageSrc = this._webcam.current.getScreenshot();
-      this.ws.send(imageSrc);
+      this.props.websocket.send(imageSrc);
     }
   }
 

@@ -11,17 +11,39 @@ import AttentionAlert from '../features/attentionAlert/Alert'
 
 export default class VideoPage extends React.Component {
 
+    ws = new WebSocket('ws://localhost:8080')
+
     state = {
         completed: false,
         videoId: 1,
         quizOpen: false,
-        optionOpen: false
+        tiredOpen: false
     }
 
     constructor(props) {
         super(props);
         this._player = React.createRef();
         this._quiz = React.createRef();
+    }
+
+    componentDidMount(){
+        this.ws.onopen = () => {
+            // on connecting, do nothing but log it to the console
+            console.log('connected')
+          }
+      
+          this.ws.onmessage = evt => {
+            // listen to data sent from the websocket server
+            const message = JSON.parse(evt.data)
+            this.setState({ dataFromServer: message })
+            console.log(message)
+          }
+      
+          this.ws.onclose = () => {
+            console.log('disconnected')
+            // automatically try to reconnect on connection loss
+      
+          }
     }
 
 
@@ -48,7 +70,7 @@ export default class VideoPage extends React.Component {
             completed: completed,
             videoId: this.state.videoId,
             quizOpen: false,
-            optionOpen: false
+            tiredOpen: false
         });
 
     }
@@ -63,14 +85,14 @@ export default class VideoPage extends React.Component {
                     completed: false,
                     videoId: nextVideo,
                     quizOpen: true,
-                    optionOpen: false
+                    tiredOpen: false
                 });
             } else {
                 this.setState({
                     completed: false,
                     videoId: this.state.videoId,
                     quizOpen: true,
-                    optionOpen: false
+                    tiredOpen: false
                 });
             }
         }, 1000);
@@ -82,7 +104,7 @@ export default class VideoPage extends React.Component {
             completed: false,
             videoId: this.state.videoId,
             quizOpen: true,
-            optionOpen: false
+            tiredOpen: false
         });
     };
 
@@ -91,7 +113,7 @@ export default class VideoPage extends React.Component {
             completed: false,
             videoId: this.state.videoId,
             quizOpen: false,
-            optionOpen: true
+            tiredOpen: true
         });
     };
 
@@ -103,7 +125,7 @@ export default class VideoPage extends React.Component {
                 <Button onClick={() => this.setState({ completed: false, videoId: this.state.videoId + 1 })}>Next</Button>
                 <Button onClick={() => this.handleOpenOptions()}>Open</Button>
                 <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/" ref={this._player} videoStateChange={() => this.handleVideoStateChange()} />
-                <WebcamWrapper />
+                <WebcamWrapper fps="5" websocket={this.ws} />
 
                 <Modal
                     aria-labelledby="simple-modal-title"
@@ -123,7 +145,7 @@ export default class VideoPage extends React.Component {
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
-                    open={this.state.optionOpen}
+                    open={this.state.tiredOpen}
                     onClose={this.handleClose}
                 >
                     <div style={{ marginTop: "10%" }}>

@@ -17,14 +17,14 @@ function createData(name, progress, img) {
 }
 
 const courses = [
-  createData('Machine learning', 90, 'f'),
-  createData('Statistics', 30, 'f'),
-  createData('Robotics', 20, 'ff'),
-  createData('AI', 30,'fff'),
-  createData('Math', 10, 'ff'),
-  createData('Java', 20, 'ff'),
-  createData('Basics Programming', 30,'fff'),
-  createData('Graphics', 10, 'ff'),
+  createData('Machine learning', 90, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+00.16.43.png'),
+  createData('Statistics', 30, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
+  createData('Robotics', 20, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
+  createData('AI', 30,'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
+  createData('Math', 10, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
+  createData('Java', 20, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
+  createData('Basics Programming', 30,'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
+  createData('Graphics', 10, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
 ];
 
 export default function SimpleTable() {
@@ -44,7 +44,7 @@ export default function SimpleTable() {
         <TableHead>
           <TableRow>
             <TableCell>Courses</TableCell>
-            <TableCell align="right">Progress</TableCell>
+            <TableCell align="left">Progress</TableCell>
             <TableCell align="right">Skills</TableCell>
           </TableRow>
         </TableHead>
@@ -59,7 +59,7 @@ export default function SimpleTable() {
                 <LinearProgress style={{height: "15px"}} variant="determinate" value={row.progress} />
               </div>
               </TableCell>
-              <TableCell align="right"><img src="https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png" width="70px"/></TableCell>
+              <TableCell align="right"><img src={row.img} width="90px"/></TableCell>
             </TableRow>
           ))}
            <TableRow>

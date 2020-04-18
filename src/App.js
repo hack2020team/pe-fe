@@ -5,8 +5,7 @@ import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/co
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Quiz from './features/quiz/Quiz';
-import Script from './features/script/Script';
-import Video from './views/Video';
+import VideoPage from './pages/videoPage';
 import 'typeface-roboto';
 
 
@@ -39,8 +38,8 @@ function App() {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/>
-      <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
+      <VideoPage />
+      <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q3.json"/>
 
     </div>
   );

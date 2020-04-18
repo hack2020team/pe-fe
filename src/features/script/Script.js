@@ -9,7 +9,6 @@ import ScrollArea from '@xico2k/react-scroll-area';
 
 
 export default class Script extends React.Component {
-
     constructor(props) {
         super(props);
         this._scrollControl = React.createRef();
@@ -71,7 +70,7 @@ export default class Script extends React.Component {
             </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
-            <ExpansionPanel>
+            <ExpansionPanel defaultExpanded>
                 <ExpansionPanelSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"

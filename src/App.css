@@ -30,7 +30,11 @@
 .App-link {
   color: rgb(112, 76, 182);
 }
-
+.remove-link {
+  text-decoration: none;
+  font-weight: bold !important;
+  color: black;
+}
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);

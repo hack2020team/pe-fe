@@ -1,10 +1,8 @@
 import React from 'react';
 import PlayerContainer from '../features/player/PlayerContainer';
 import Script from '../features/script/Script';
-import { Container, Grid, Paper } from '@material-ui/core';
-
-
-
+import { Container, Button, Grid, Paper } from '@material-ui/core';
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -64,7 +62,11 @@ export default class VideoView extends React.Component {
                         <Paper><Script scrollPercentage={this.state.currentTime / this.state.duration} videoId={this.props.videoId} source={this.props.source}/></Paper>
                     </Grid>
                 </Grid>
-
+                <NavLink to={"/"} className="remove-link">
+                    <Button style={{ marginTop: "35px"}} variant="contained" color="secondary">
+                        Back to lectures
+                    </Button>
+                </NavLink>
             </Container>
         );
     }

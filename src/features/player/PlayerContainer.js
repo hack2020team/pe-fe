@@ -32,6 +32,9 @@ export default class PlayerContainer extends React.Component {
     this._player.current.subscribeToStateChange(bind)
   }
   
+  load() {
+    this._player.current.load();
+  }
 
   render() {
     return (

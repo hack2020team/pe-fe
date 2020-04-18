@@ -2,10 +2,7 @@ import React from 'react';
 import Radio from '@material-ui/core/Radio';
 
 class QuizAnswer extends React.Component {
-      constructor(props){
-        super(props)
-        console.log(this.props)
-      }
+
     render() {
 
         return (

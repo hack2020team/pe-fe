@@ -18,7 +18,8 @@ export default class Script extends React.Component {
             readyInfo: false,
             readyScript: false,
             info: null,
-            script: null
+            script: null,
+            videoId: props.videoId
         };
     }
 
@@ -28,15 +29,16 @@ export default class Script extends React.Component {
         this._scrollControl.current.goToPos(scrollDistance, 400);
     }
 
-    componentDidMount() {
+    componentDidUpdate(props, prevProps) {
+        if (this.props.videoId !== this.state.videoId) {
         fetch(this.props.source + "i" + this.props.videoId + ".json")
             .then(response => response.json())
             .then(d => this.setState({
                 readyInfo: true,
                 readyScript: this.state.readyScript,
                 info: d,
-                script: this.state.script
-
+                script: this.state.script,
+                videoId: this.props.videoId
             }));
 
 
@@ -47,8 +49,9 @@ export default class Script extends React.Component {
                 readyInfo: this.state.readyInfo,
                 readyScript: true,
                 info: this.state.info,
-                script: d
-            }));
+                script: d,
+                videoId: this.props.videoId
+            }));}
     }
 
 

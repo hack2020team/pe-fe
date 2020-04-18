@@ -6,8 +6,7 @@ import { AppBar, Toolbar, IconButton, Typography, Button, Container } from '@mat
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Quiz from './features/quiz/Quiz';
-import Script from './features/script/Script';
-import Video from './views/Video';
+import VideoPage from './pages/videoPage';
 import 'typeface-roboto';
 import { MuiThemeProvider,ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { white } from '@material-ui/core/colors';
@@ -64,7 +63,7 @@ function App() {
 			<Container>
 				<Dashboard />
 				<Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
-				<Video />
+				<VideoPage />
 				<Chatbot />
 			</Container>
 		</div>

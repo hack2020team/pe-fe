@@ -10,7 +10,7 @@ import { Container, Button, Grid, Paper } from '@material-ui/core';
 
 
 
-export default class Video extends React.Component {
+export default class VideoView extends React.Component {
 
     constructor(props) {
         super(props);
@@ -38,14 +38,18 @@ export default class Video extends React.Component {
         this._player.current.subscribeToStateChange(this.handleStateChange.bind(this));
     }
 
-    handleStateChange(state, prevState) {
-
+    handleStateChange = (state, prevState) => {
         this.setState({
             player: state,
             currentTime: state.currentTime,
             duration: state.duration,
             pause: state.paused
         });
+        this.props.videoStateChange(this.state);
+    }
+
+    load(){
+        this._player.current.load()
     }
 
 

@@ -24,9 +24,11 @@ export default class WebcamWrapper extends React.Component {
   }
 
   capture = () => {
-    if (this._webcam.current != null && this.props.websocket != null) {
+    if (this._webcam &&  this.props && this._webcam.current != null && this.props.websocket != null) {
       let imageSrc = this._webcam.current.getScreenshot();
-      this.props.websocket.send(imageSrc);
+      if (imageSrc) {
+        this.props.websocket.send(imageSrc);
+      }
     }
   }
 
@@ -58,9 +60,6 @@ export default class WebcamWrapper extends React.Component {
         </Button>
             </CardActions>
           </Card>
-
-
-
         </Grid>
       </Grid>
 

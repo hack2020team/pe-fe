@@ -6,6 +6,7 @@ import { AppBar, Toolbar, Typography, Button, Container } from '@material-ui/cor
 import Quiz from './features/quiz/Quiz';
 import VideoPage from './pages/VideoPage';
 import 'typeface-roboto';
+
 import { MuiThemeProvider, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter as Router } from "react-router-dom"
 import Routes from './router';
@@ -13,9 +14,11 @@ import Routes from './router';
 function App() {
 
   return (
+
     <Router>
       <Routes/>
     </Router>
+
   );
 }
 

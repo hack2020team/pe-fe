@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+
 import { Table, Typography, TableBody,TableCell,TableContainer, TableHead, TableRow, LinearProgress, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, Button, TextField } from '@material-ui/core';
 import { NavLink } from 'react-router-dom'
+
 
 const useStyles = makeStyles({
   table: {
@@ -22,15 +24,9 @@ const courses = [
 
 export default function SimpleTable() {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  
-  const handleClose = () => {
-    setOpen(false);
-  };
+
   return (
+
     <div>
     <TableContainer>
       <Table className={classes.table} aria-label="simple table">
@@ -94,6 +90,7 @@ export default function SimpleTable() {
          </Button>
        </DialogActions>
    </Dialog>
+
    </div>
   );
 }

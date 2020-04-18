@@ -37,10 +37,10 @@ export default class VideoPage extends React.Component {
             try {
                 const message = JSON.parse(evt.data)
                 this.setState({ dataFromServer: message })
-                console.log(message)
+       
  
-                if (message.events.name === "face_not_found") {
-                    console.log("Face not detected");
+                if (message.events[0].name === "face_not_detected") {
+                    
                     this.setState({
                         completed: this.state.completed,
                         videoId: this.state.videoId,

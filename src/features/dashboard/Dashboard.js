@@ -25,7 +25,7 @@ export default function SimpleTable() {
   return (
     <div style={{ paddingTop: "35px" }}> 
     <Grid container spacing={3}>
-      <Grid item xs={8}>
+      <Grid item xs={12} md={8}>
         <TableContainer>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
@@ -56,7 +56,7 @@ export default function SimpleTable() {
           </Table>
         </TableContainer>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <div style={{textAlign: 'center'}}>
             <img  width="270px" src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.14.40.png" />
             <img  width="400px" style={{paddingTop: '50px'}} src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.27.49.png" />

@@ -1,8 +1,8 @@
 import React from 'react';
-
 import Dashboard from './features/dashboard/Dashboard.js'
+import Chatbot from './features/chatbot/Chatbot.js'
 import './App.css';
-import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Button, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Quiz from './features/quiz/Quiz';
@@ -29,23 +29,24 @@ function App() {
   const classes = useStyles();
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            YouLearn
-    </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-      <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/>
-      <Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
-      <Container>
-        <Dashboard />
-        <Video />
-      </Container>
+		<AppBar position="static">
+			<Toolbar>
+				<IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+					<MenuIcon />
+				</IconButton>
+				<Typography variant="h6" className={classes.title}>
+					YouLearn
+				</Typography>
+				<Button color="inherit">Login</Button>
+			</Toolbar>
+		</AppBar>
+		{/* <Video videoId="003" source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/"/> */}
+			<Container>
+				<Dashboard />
+				<Quiz source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/q003.json"/>
+				<Video />
+				<Chatbot />
+			</Container>
 
     </div>
   );

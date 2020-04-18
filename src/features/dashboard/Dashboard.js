@@ -1,30 +1,22 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Table, TableBody,TableCell,TableContainer, TableHead, TableRow, LinearProgress, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, Button, TextField } from '@material-ui/core';
+import { Table, Typography, TableBody,TableCell,TableContainer, TableHead, TableRow, LinearProgress, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, Button, TextField } from '@material-ui/core';
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
-
-// const addNewCourse = (e) => {
-//   e.preventDefault();
-  
-// };
 function createData(name, progress, img) {
   return { name, progress, img };
 }
 
 const courses = [
-  createData('Machine learning', 90, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+00.16.43.png'),
-  createData('Statistics', 30, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
-  createData('Robotics', 20, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
-  createData('AI', 30,'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
-  createData('Math', 10, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
-  createData('Java', 20, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
-  createData('Basics Programming', 30,'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
-  createData('Graphics', 10, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
+  createData('Deep Neural Networks for Language Understanding', 90, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+00.16.43.png'),
+  createData('Explainable AI and Causality', 30, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
+  createData('Style Transfer Networks', 20, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
+  createData('Low-Resource-Learning / Transfer Learning / Active Learning', 30,'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.17.png'),
+  createData('AlphaGo / AlphaZero / AlphaStar', 10, 'https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+08.56.01.png'),
 ];
 
 export default function SimpleTable() {
@@ -52,24 +44,26 @@ export default function SimpleTable() {
           {courses.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
+              <Typography variant="subtitle1" style={{fontWeight: 'bold'}} gutterBottom>
                 {row.name}
+              </Typography> 
               </TableCell>
               <TableCell align="right">
               <div className={classes.root}>
-                <LinearProgress style={{height: "15px"}} variant="determinate" value={row.progress} />
+                <LinearProgress style={{height: "15px"}} color="secondary" variant="determinate" value={row.progress} />
               </div>
               </TableCell>
               <TableCell align="right"><img src={row.img} width="90px"/></TableCell>
             </TableRow>
           ))}
-           <TableRow>
+           {/* <TableRow>
               <TableCell component="th" scope="row">
                 <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                   + Add course
                 </Button>
                 
               </TableCell>
-            </TableRow>
+            </TableRow> */}
         </TableBody>
        
       </Table>

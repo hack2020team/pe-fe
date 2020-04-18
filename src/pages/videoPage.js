@@ -11,7 +11,7 @@ import AttentionAlert from '../features/attentionAlert/Alert'
 
 export default class VideoPage extends React.Component {
 
-    ws = new WebSocket('ws://localhost:8080')
+    ws = new WebSocket('wss://messaging.youlearn.kontr.io')
 
     state = {
         completed: false,

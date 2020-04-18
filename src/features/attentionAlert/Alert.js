@@ -8,9 +8,9 @@ export default class AttentionAlert extends React.Component{
 
 
     render(){
-        return (<Card  variant="outlined" style={{maxWidth: 345}}>
+        return (<Card  variant="outlined" style={{maxWidth: 690}}>
             <CardContent>
-                <Typography color="textSecondary" gutterBottom>
+                <Typography color="textPrimary" variant="h4" component="h1" gutterBottom>
                     You don't seem to be paying attention.
           </Typography>
                 <Typography variant="h5" component="h2">

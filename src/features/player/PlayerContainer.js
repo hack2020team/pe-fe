@@ -12,7 +12,7 @@ import {
 } from 'video-react';
 import "./video-react.css";
 
-export class PlayerContainer extends React.Component {
+export default class PlayerContainer extends React.Component {
 
   constructor(props){
     super(props);
@@ -26,6 +26,10 @@ export class PlayerContainer extends React.Component {
   
   play() {
     this._player.current.play();
+  }
+
+  subscribeToStateChange(bind) {
+    this._player.current.subscribeToStateChange(bind)
   }
   
 

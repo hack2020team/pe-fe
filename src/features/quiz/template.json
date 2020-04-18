@@ -1,0 +1,47 @@
+{
+    "meta": {
+        "title": "Demo Quiz",
+        "creator": "Lecturer",
+        "created": "18-04-2020",
+        "timeLimit": "...",
+        "submissionEndpoint": "..."
+    },
+    "questions": {
+        "000": {
+            "title": "What is the goal of Machine Learning?",
+            "detail": "...",
+            "value": "5",
+            "answers": {
+                "a00": "This is a good question.",
+                "a01": "A correct prediction most of the time",
+                "a02": "Almost a prediction at the correct time"
+            },
+            "correctAnswer": "a01",
+            "reason": " Machine Learning is a way of inferring something about the real world from limited data. A mostly correct prediction is what we humans are working with too.."
+        },
+        "001": {
+            "title": "What framework are we using?",
+            "detail": "...",
+            "value": "5",
+            "answers": {
+                "a00": "This is a good question.",
+                "a01": "React.js",
+                "a02": "Vue.js"
+            },
+            "correctAnswer": "a01",
+            "reason": "This is buildt using Javascript, React.js as well as material-ui"
+        },
+        "002": {
+            "title": "How broken is this System?",
+            "detail": "...",
+            "value": "5",
+            "answers": {
+                "a00": "It works!",
+                "a01": "Not at all!",
+                "a02": "What a dumb question"
+            },
+            "correctAnswer": "a00",
+            "reason": "And this is why!"
+        }
+    }
+}

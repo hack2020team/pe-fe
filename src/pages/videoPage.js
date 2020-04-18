@@ -10,8 +10,12 @@ import AttentionAlert from '../features/attentionAlert/Alert'
 
 
 export default class VideoPage extends React.Component {
-
-    ws = new WebSocket('ws://localhost:8080')
+    constructor(props) {
+        super(props);
+        this._player = React.createRef();
+        this._quiz = React.createRef();
+    }
+    ws = new WebSocket('wss://messaging.youlearn.kontr.io');
 
     state = {
         completed: false,
@@ -20,30 +24,42 @@ export default class VideoPage extends React.Component {
         tiredOpen: false
     }
 
-    constructor(props) {
-        super(props);
-        this._player = React.createRef();
-        this._quiz = React.createRef();
-    }
 
-    componentDidMount(){
+
+    componentDidMount() {
         this.ws.onopen = () => {
             // on connecting, do nothing but log it to the console
             console.log('connected')
-          }
-      
-          this.ws.onmessage = evt => {
-            // listen to data sent from the websocket server
-            const message = JSON.parse(evt.data)
-            this.setState({ dataFromServer: message })
-            console.log(message)
-          }
-      
-          this.ws.onclose = () => {
+        }
+
+        this.ws.onmessage = evt => {
+            // // listen to data sent from the websocket server
+            try {
+                const message = JSON.parse(evt.data)
+                this.setState({ dataFromServer: message })
+                console.log(message)
+ 
+                if (message.events.name === "face_not_found") {
+                    console.log("Face not detected");
+                    this.setState({
+                        completed: this.state.completed,
+                        videoId: this.state.videoId,
+                        quizOpen: false,
+                        tiredOpen: true
+                    });
+                }
+            }
+            catch (err) {
+
+            }
+
+        }
+
+        this.ws.onclose = () => {
             console.log('disconnected')
             // automatically try to reconnect on connection loss
-      
-          }
+
+        }
     }
 
 

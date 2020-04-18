@@ -2,7 +2,7 @@ import React from 'react';
 import Dashboard from './features/dashboard/Dashboard.js'
 import Chatbot from './features/chatbot/Chatbot.js'
 import './App.css';
-import { AppBar, Toolbar, IconButton, Typography, Button, Container } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Quiz from './features/quiz/Quiz';
 import VideoPage from './pages/videoPage';
@@ -24,9 +24,13 @@ const useStyles = makeStyles((theme) => ({
 
 const theme = createMuiTheme({
 	palette: {
+		
 	  secondary: {
 		  main: '#1f56b3'
-		}
+		},
+		primary: {
+			main: '#838383'
+		},
 	  }
 	},
   )
@@ -36,18 +40,8 @@ function App() {
   return (
 	<MuiThemeProvider theme={theme}>
 		<ThemeProvider
-        theme={(theme) =>
-          createMuiTheme({
-            ...theme,
-            palette: {
-              ...theme.palette,
-              primary: {
-				main: '#838383'
-			  },
-            },
-          })
-        }
-      >
+			theme={theme}
+     	 >
 		<div>
 			<AppBar position="static">
 				<Toolbar color="secondary">

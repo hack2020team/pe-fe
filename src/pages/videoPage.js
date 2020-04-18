@@ -3,6 +3,7 @@ import { Button, Paper, Modal } from '@material-ui/core';
 import VideoView from '../views/videoView';
 import Quiz from '../features/quiz/Quiz';
 import styles from './video.page.css';
+import WebcamWrapper from '../features/webcam/WebcamWrapper'
 export default class VideoPage extends React.Component {
 
     state = {
@@ -97,7 +98,7 @@ export default class VideoPage extends React.Component {
                 <Button onClick={() => this.setState({ completed: false, videoId: this.state.videoId + 1 })}>Next</Button>
 
                 <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/" ref={this._player} videoStateChange={() => this.handleVideoStateChange()} />
-
+                <WebcamWrapper />
 
                 <Modal
                     aria-labelledby="simple-modal-title"

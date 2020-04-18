@@ -42,18 +42,12 @@ function App() {
 			theme={theme}
      	 >
 		<div>
-			<AppBar color="secondary" position="static">
-				<Toolbar >
-					<Typography variant="h6" className={classes.title}>
-						YouLearn
-					</Typography>
-					<Button color="inherit">Login</Button>
-				</Toolbar>
-			</AppBar>
 			<Container>
 				<Dashboard />
 				<VideoPage />
 				<Chatbot />
+
+				
 			</Container>
 		</div>
 		</ThemeProvider>

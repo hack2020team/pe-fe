@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import PlayerContainer from '../features/player/PlayerContainer';
 import Script from '../features/script/Script';

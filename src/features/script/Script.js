@@ -56,7 +56,7 @@ export default class Script extends React.Component {
 
 
     render() {
-        return (<div >
+        return (<div>
             <ExpansionPanel>
                 <ExpansionPanelSummary
                     expandIcon={<ExpandMoreIcon />}

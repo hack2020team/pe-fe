@@ -10,8 +10,12 @@ import AttentionAlert from '../features/attentionAlert/Alert'
 
 
 export default class VideoPage extends React.Component {
-
-    ws = new WebSocket('wss://messaging.youlearn.kontr.io')
+    constructor(props) {
+        super(props);
+        this._player = React.createRef();
+        this._quiz = React.createRef();
+    }
+    ws = new WebSocket('wss://sock.youlearn.kontr.io');
 
     state = {
         completed: false,
@@ -20,11 +24,7 @@ export default class VideoPage extends React.Component {
         tiredOpen: false
     }
 
-    constructor(props) {
-        super(props);
-        this._player = React.createRef();
-        this._quiz = React.createRef();
-    }
+
 
     componentDidMount() {
         this.ws.onopen = () => {
@@ -38,6 +38,16 @@ export default class VideoPage extends React.Component {
                 const message = JSON.parse(evt.data)
                 this.setState({ dataFromServer: message })
                 console.log(message)
+ 
+                if (message.events.name === "face_not_found") {
+                    console.log("Face not detected");
+                    this.setState({
+                        completed: this.state.completed,
+                        videoId: this.state.videoId,
+                        quizOpen: false,
+                        tiredOpen: true
+                    });
+                }
             }
             catch (err) {
 

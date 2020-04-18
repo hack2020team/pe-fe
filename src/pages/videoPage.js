@@ -50,7 +50,7 @@ export default class VideoPage extends React.Component {
                 }
             }
             catch (err) {
-
+                console.log("no auth")
             }
 
         }
@@ -142,7 +142,6 @@ export default class VideoPage extends React.Component {
                 <Button onClick={() => this.handleOpenOptions()}>Open</Button>
                 <VideoView videoId={this.state.videoId} source="https://youlearn.s3.eu-central-1.amazonaws.com/math/02/" ref={this._player} videoStateChange={() => this.handleVideoStateChange()} />
                 <WebcamWrapper fps="5" websocket={this.ws} />
-
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
@@ -172,7 +171,6 @@ export default class VideoPage extends React.Component {
                         </Grid>
                     </div>
                 </Modal>
-
             </div>
         );
     }

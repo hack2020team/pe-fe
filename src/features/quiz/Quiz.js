@@ -4,8 +4,6 @@ import { Container, Button, Typography } from '@material-ui/core';
 import { withFormik } from "formik";
 import QuizQuestion from './QuizQuestion';
 
-
-
 export default class Quiz extends React.Component {
 
     constructor(props) {

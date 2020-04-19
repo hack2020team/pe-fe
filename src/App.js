@@ -54,7 +54,7 @@ function App() {
 			<Container >
 				<Chatbot />
 			</Container>
-			<Alert style={{ padding: "20px", position: "fixed", left: 0, bottom: 0, width: "100%"}} severity="info">By using that website you agree for using your camera</Alert>
+			<Alert style={{ padding: "20px", position: "fixed", left: 0, bottom: 0, width: "100%"}} severity="info">By using this website, you agree to the use of the web camera inorder to provide personalisation.</Alert>
 		</div>
 		</ThemeProvider>
 		<Router>

@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Table,  Grid, Typography, TableBody,TableCell,TableContainer, TableHead, TableRow, LinearProgress, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, Button, TextField } from '@material-ui/core';
 import { NavLink } from 'react-router-dom'
 import './../../App.css';
+import LineChart from './LineChart'
+import DoughnutChart from './DoughnutChart'
 
 const useStyles = makeStyles({
   table: {
@@ -67,8 +69,10 @@ export default function SimpleTable() {
         </Grid>
         <Grid item xs={12} md={4}>
           <div style={{textAlign: 'center'}}>
-            <img  width="70%" src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.14.40.png" />
-            <img  width="80%" style={{paddingTop: '50px'}} src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.27.49.png" />
+            {/* <img  width="70%" src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.14.40.png" />
+            <img  width="80%" style={{paddingTop: '50px'}} src="https://youlearn.s3.eu-central-1.amazonaws.com/math/skills-chart/Screenshot+2020-04-18+at+15.27.49.png" /> */}
+            <DoughnutChart/>
+            <LineChart/>
           </div>
         </Grid>
       
